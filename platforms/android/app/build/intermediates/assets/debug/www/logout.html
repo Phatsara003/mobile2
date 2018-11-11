@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="ejs.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script src="cordova.js"></script>
+    <title>Quiz I</title>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDwR89ZYo757lcF71fBKfKGEdgAMEvh7r0",
+          authDomain: "shopee-bc901.firebaseapp.com",
+        
+        };
+        firebase.initializeApp(config);
+      </script>
+
+</head>
+<style>
+    .back{
+  background-color: #dd4b39;
+  color: white;
+}
+
+</style>
+<body>
+    <ons-page>
+        <div style="text-align: center; margin-top: 180px;">
+                <h3>Are you sure LogOut?</h3>
+            <p style="margin-top: 60px;">
+                <ons-button style="width:200px;height:38px" onclick="logout()">logout</ons-button>
+            </p>
+            <p style="margin-top: 15px;">
+                    <ons-button  style="width:200px;height:38px" class="back btn" onclick="window.location.href='home.html'" >Cencel</ons-button>
+                </p>
+        </div>
+    </ons-page>
+</body>
+<script>
+
+    function logout(){
+    firebase.auth().signOut().then(function () {
+        ons.notification.alert('See u soon ').then(function(){
+        window.location.href = 'login.html';
+        });
+    }).catch(function (error) {
+        // An error happened.
+    });
+}
+  
+</script>
+
+</html>
